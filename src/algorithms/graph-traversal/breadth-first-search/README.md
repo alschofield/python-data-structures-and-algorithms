@@ -2,15 +2,15 @@
 
 ## How It Works
 
-Traverse an adjacency list level by level using a FIFO frontier.
+Traverse any GraphView level by level using a FIFO frontier.
 
 ## Required API
 
-Implement breadthFirstSearch with: breadthFirstSearch(graph, source): number[] | undefined. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+Implement `breadthFirstSearch(graph: GraphView[T], source: NodeHandle) -> list[NodeHandle] | None`.
 
 ## Contract
 
-- Mark vertices visited when enqueued. Visit each reachable vertex once, leave graph unchanged, reject invalid source, and handle cycles, self-loops, and disconnected graphs. Do not use a library queue.
+- Mark node handles visited when enqueued. Visit each reachable node once, leave graph unchanged, reject invalid or foreign source handles, and handle cycles, self-loops, and disconnected graphs. Accept dynamic GraphView adapters and ignore every edge weight. Return handles in visit order. Do not use a library queue.
 - Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
 
 ## Complexity Targets

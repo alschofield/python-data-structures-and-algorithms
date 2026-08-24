@@ -9,4 +9,4 @@ def test_a_star_exports_required_api():
 
 @pytest.mark.xfail(reason="Production API is user-owned and has not been written.")
 def test_a_star_contract_scaffold():
-    pytest.fail("Implement and expand tests for: aStar(graph, source, goal, heuristic): number[] | undefined")
+    pytest.fail("Implement and expand tests for: aStar(graph: GraphView, source, goal: int, heuristic) -> list[int] | None using weighted neighbors")
