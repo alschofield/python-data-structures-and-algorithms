@@ -1,18 +1,15 @@
 # Linear Search
 
-## How It Works
+## Evidence-Based Contract
 
-A front-to-back scan over arbitrary input.
+`linear_search.linearSearch` must be importable. The current test scaffold names `linearSearch(items, key, compare): number | undefined` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement linearSearch<T> with: linearSearch(items, key, compare): number | undefined. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Mutation of `items`, reference/identity behavior for items and `key`, accepted runtime types, comparator convention, missing-result representation, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Works on unsorted input and returns the first matching index. Missing and empty inputs return undefined. Never modify input and do not use Array.prototype.indexOf/find.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best O(1), average/worst O(n), O(1) extra space.
+Run `python -m pytest src/algorithms/searching/linear-search`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

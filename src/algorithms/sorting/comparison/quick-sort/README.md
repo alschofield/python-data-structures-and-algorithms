@@ -1,18 +1,15 @@
 # Quick Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Partition around a defensively chosen pivot, then recursively sort both partitions.
+`quick_sort.quickSort` must be importable. The current test scaffold names `quickSort(items, compare): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement quickSort<T> with: quickSort(items, compare): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, reference/identity behavior, comparator convention, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Sort in place ascending; stability is not required. Use median-of-three or randomized pivots, not a fixed first/last pivot. All-equal and duplicate inputs must remain correct. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best/average O(n log n), worst O(n^2), expected O(log n) recursion space.
+Run `python -m pytest src/algorithms/sorting/comparison/quick-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

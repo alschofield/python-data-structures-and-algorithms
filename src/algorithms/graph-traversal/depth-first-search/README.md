@@ -1,18 +1,15 @@
 # Depth-First Search
 
-## How It Works
+## Evidence-Based Contract
 
-Traverse any GraphView as far as possible down each branch before backtracking, using a stack or recursion.
+`depth_first_search.depthFirstSearch` must be importable. The test scaffold names `depthFirstSearch(graph: GraphView, source: int) -> list[int] | None` and says to ignore edge weights.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement `depthFirstSearch(graph: GraphView[T], source: NodeHandle) -> list[NodeHandle] | None`.
+- Traversal order, graph mutation, source-index validation, unreachable-result semantics, reference behavior, and raised exceptions are not specified.
+- `GraphView` is a runtime dependency named by the scaffold; no import path, protocol shape, or runtime validation behavior is specified here.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Visit each reachable node once using a visited-handle structure, leave graph unchanged, reject invalid or foreign source handles, and handle cycles, self-loops, and disconnected graphs. Accept dynamic GraphView adapters and ignore every edge weight. Return handles in visit order. Understand both recursive and explicit-stack forms; do not use a library stack.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- O(V + E) time and O(V) auxiliary space.
+Run `python -m pytest src/algorithms/graph-traversal/depth-first-search`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

@@ -1,18 +1,15 @@
 # Doubly Linked List
 
-## How It Works
+## Evidence-Based Contract
 
-A node chain with forward and backward links plus head and tail pointers.
+`doubly_linked_list.DoublyLinkedList` must be importable. The test scaffold names `pushFront(item)`, `pushBack(item)`, `popFront()`, `popBack()`, `get(index)`, `insert(index, item)`, `remove(index)`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement DoublyLinkedList<T> with: pushFront(item), pushBack(item), popFront(), popBack(), get(index), insert(index, item), remove(index), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Constructor behavior; whether `size` and `isEmpty` are properties or methods; index rules; return values; failure atomicity; mutation; retained item references; accepted runtime types; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Maintain reciprocal next/prev links. Indexes are [0, size); insert accepts size. Walk indexed operations from the nearer end. Failed operations preserve the list and the final removal clears both ends.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- End operations, size, isEmpty O(1); indexed operations O(n), at most n/2 traversal steps; O(n) nodes with two links.
+Run `python -m pytest src/data-structures/linear/linked/doubly-linked-list`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

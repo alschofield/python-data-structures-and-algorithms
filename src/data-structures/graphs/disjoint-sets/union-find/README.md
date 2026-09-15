@@ -1,18 +1,15 @@
 # Union-Find
 
-## How It Works
+## Evidence-Based Contract
 
-A dense-index disjoint-set forest with parent pointers, path compression, and union by rank or size.
+`union_find.UnionFind` must be importable. The test scaffold names `constructor(elementCount)`, `find(element)`, `union(a, b)`, `connected(a, b)`, and `setCount`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement UnionFind with: constructor(elementCount), find(element), union(a, b), connected(a, b), setCount. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Python constructor spelling, valid element-index range, representatives and return values, whether `setCount` is a property or method, mutation, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Each element begins in a singleton set. Reject invalid indexes. Unioning an existing set is a no-op; successful union decreases setCount by one. Representatives may change, so callers rely only on equality.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- find, union, connected amortized O(alpha(n)); construction O(n); O(n) parent and rank/size storage.
+Run `python -m pytest src/data-structures/graphs/disjoint-sets/union-find`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

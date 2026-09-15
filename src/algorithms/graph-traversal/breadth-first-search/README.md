@@ -1,18 +1,15 @@
 # Breadth-First Search
 
-## How It Works
+## Evidence-Based Contract
 
-Traverse any GraphView level by level using a FIFO frontier.
+`breadth_first_search.breadthFirstSearch` must be importable. The test scaffold names `breadthFirstSearch(graph: GraphView, source: int) -> list[int] | None` and says to ignore edge weights.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement `breadthFirstSearch(graph: GraphView[T], source: NodeHandle) -> list[NodeHandle] | None`.
+- Traversal order, graph mutation, source-index validation, unreachable-result semantics, reference behavior, and raised exceptions are not specified.
+- `GraphView` is a runtime dependency named by the scaffold; no import path, protocol shape, or runtime validation behavior is specified here.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Mark node handles visited when enqueued. Visit each reachable node once, leave graph unchanged, reject invalid or foreign source handles, and handle cycles, self-loops, and disconnected graphs. Accept dynamic GraphView adapters and ignore every edge weight. Return handles in visit order. Do not use a library queue.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- O(V + E) time and O(V) auxiliary space with an adjacency list.
+Run `python -m pytest src/algorithms/graph-traversal/breadth-first-search`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

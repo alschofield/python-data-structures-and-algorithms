@@ -1,18 +1,15 @@
 # Selection Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Repeatedly select the minimum remaining item and swap it into the sorted prefix.
+`selection_sort.selectionSort` must be importable. The current test scaffold names `selectionSort(items, compare): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement selectionSort<T> with: selectionSort(items, compare): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, reference/identity behavior, comparator convention, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Sort in place ascending with at most n-1 swaps. The classic swap version is not stable. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best/average/worst O(n^2), O(1) extra space.
+Run `python -m pytest src/algorithms/sorting/comparison/selection-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

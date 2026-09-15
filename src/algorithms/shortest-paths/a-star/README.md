@@ -1,18 +1,15 @@
 # A-Star
 
-## How It Works
+## Evidence-Based Contract
 
-Order the frontier by g(n) + h(n), cost so far plus an admissible remaining-cost estimate.
+`a_star.aStar` must be importable. The test scaffold names `aStar(graph: GraphView, source, goal: int, heuristic) -> list[int] | None` and requires weighted neighbors.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement `aStar(graph: GraphView[T], source: NodeHandle, goal: NodeHandle, heuristic: Callable[[NodeHandle], float]) -> list[NodeHandle] | None`.
+- Source typing, path ordering, graph mutation, source and goal validation, heuristic calling convention, weight domain, reference behavior, and raised exceptions are not specified.
+- `GraphView` and weighted-neighbor iteration are required by name only; their import paths, shapes, and runtime validation behavior are not specified.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Consume dynamic GraphView weighted neighbors. Reject invalid or foreign source/goal handles and require non-negative weights. With zero heuristic, match Dijkstra behavior. Resolve frontier ties deterministically, return an optimal source-to-goal handle path for admissible heuristics, and return None when unreachable. Do not use a library priority queue.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- Worst case O((V + E) log V) time and O(V) auxiliary space.
+Run `python -m pytest src/algorithms/shortest-paths/a-star`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

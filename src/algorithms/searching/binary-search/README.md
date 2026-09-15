@@ -1,18 +1,15 @@
 # Binary Search
 
-## How It Works
+## Evidence-Based Contract
 
-An iterative range-halving search over input already sorted ascending by compare.
+`binary_search.binarySearch` must be importable. The current test scaffold names `binarySearch(items, key, compare): number | undefined` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement binarySearch<T> with: binarySearch(items, key, compare): number | undefined. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Required ordering of `items`, mutation of `items`, duplicate-result selection, reference/identity behavior, comparator convention, missing-result representation, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Assume but do not sort or validate the order. Return any matching duplicate index, undefined when missing, and never modify input. Midpoint logic must always shrink safely.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best O(1), average/worst O(log n), O(1) extra space.
+Run `python -m pytest src/algorithms/searching/binary-search`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

@@ -1,18 +1,15 @@
 # Stack
 
-## How It Works
+## Evidence-Based Contract
 
-An array-backed LIFO collection whose top is the final occupied index.
+`stack.Stack` must be importable. The test scaffold names `push(item)`, `pop()`, `peek()`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement Stack<T> with: push(item), pop(), peek(), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Constructor behavior; whether `size` and `isEmpty` are properties or methods; return values; empty-operation behavior; mutation; retained object references; accepted runtime types; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- pop and peek return the most recently pushed item; pop removes it. Empty operations report absence without mutation. Stored values remain caller-owned.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- push amortized O(1); pop, peek, size, isEmpty O(1); O(n) contiguous space.
+Run `python -m pytest src/data-structures/linear/stacks/stack`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

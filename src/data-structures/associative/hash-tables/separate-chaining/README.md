@@ -1,35 +1,20 @@
 # Separate-Chaining Hash Table
 
-## How It Works
+## Evidence-Based Contract
 
-A hash selects a bucket and each collision bucket is a linked chain. `set`
-preserves the chosen fixed capacity; `set_resizing` doubles and rehashes
-buckets before a new entry would exceed a 0.75 load factor.
+`separate_chaining.HashTable` must be importable. The test scaffold names `constructor(initial_capacity, hash, equals)`, `set(key, value)`, `set_resizing(key, value)`, `get(key)`, `remove(key)`, `contains(key)`, `size`, `capacity`, and `is_empty`.
 
-## Required API
+## Required Behavior From The Scaffold
 
-Implement HashTable<K, V> with: constructor(initial_capacity, hash, equals),
-set(key, value), set_resizing(key, value), get(key), remove(key), contains(key),
-size, capacity, is_empty. Use idiomatic Python classes/functions, type hints,
-and return values; the required operations remain equivalent to the canonical C
-curriculum.
+- Zero capacity is rejected. `set` keeps capacity fixed.
+- Before `set_resizing` would exceed a 0.75 load, capacity doubles and entries are rehashed.
 
-## Contract
+## Boundaries To Specify In Tests
 
-- `initial_capacity` must be nonzero. Standard callers use `10`; reject an
-  invalid capacity without creating a table. Keys must not be null; values may
-  be null.
-- Both set methods insert a new key or replace an equal key's value while
-  retaining the first stored key. `set` never changes capacity.
-- `set_resizing` checks whether adding a new key would exceed a 0.75 load
-  factor. If so, double capacity and rehash every entry with
-  `hash(key) % new_capacity` before insertion. A failed growth preserves the
-  table, capacity, and result.
-- Absent/null-key lookups and removals do not mutate. Collisions must work.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
+- Python constructor spelling; hash and equality callback conventions; return values; duplicate-key policy; mutation and failure atomicity; key and value reference behavior; whether `size`, `capacity`, and `is_empty` are properties or methods; accepted runtime types; and exception classes are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Complexity Targets
+## Verification
 
-- set/get/remove/contains expected O(1) with short chains, O(n / capacity) as
-  fixed chains grow, O(n) worst case; set_resizing amortized O(1), O(n) when
-  resizing; size/capacity/is_empty O(1); O(entries + capacity) space.
+Run `python -m pytest src/data-structures/associative/hash-tables/separate-chaining`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

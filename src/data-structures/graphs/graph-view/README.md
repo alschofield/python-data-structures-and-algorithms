@@ -1,15 +1,15 @@
 # GraphView
 
-## Required API
+## Evidence-Based Contract
 
-Implement `GraphView` as a Protocol or abstract base class with `vertex_count` and `neighbors(vertex: int) -> Iterable[tuple[int, int]]`.
+`graph_view.GraphView` must be importable. The test scaffold requires `vertex_count`, weighted index neighbors, and dynamic adapters.
 
-## Contract
+## Boundaries To Specify In Tests
 
-- Vertexes are dense indexes in `range(vertex_count)`. Neighbor iteration rejects out-of-range indexes, yields each outgoing weighted edge once in deterministic order, and does not mutate the backing graph.
-- Weights are nonnegative. Adjacency-list, adjacency-matrix, and imported-graph adapters map their storage to vertex indexes. GraphView never exposes node handles or values.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
+- Whether `vertex_count` is a property or method; neighbor-operation spelling and iterable shape; index validation; order; graph mutation; weight type and domain; adapter lifetime; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. A Protocol or abstract base class is not required by the test; any type hints do not enforce runtime conformance unless code explicitly does so.
+- No complexity target is currently verified or specified.
 
-## Complexity Targets
+## Verification
 
-- `vertex_count` is O(1). Neighbor iteration is O(deg(u)) for an adjacency list and O(N) for an adjacency matrix.
+Run `python -m pytest src/data-structures/graphs/graph-view`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

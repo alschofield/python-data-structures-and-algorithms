@@ -1,18 +1,15 @@
 # Dijkstra
 
-## How It Works
+## Evidence-Based Contract
 
-Repeatedly settle the lowest tentative distance and relax its non-negative weighted outgoing edges.
+`dijkstra.dijkstra` must be importable. The test scaffold names `dijkstra(graph: GraphView, source: int) -> DijkstraResult` with index-keyed outputs and weighted neighbors.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement `dijkstra(graph: GraphView[T], source: NodeHandle) -> DijkstraResult | None`, where `DijkstraResult` exposes `distance(node) -> float | None` and `parent(node) -> NodeHandle | None`.
+- The `DijkstraResult` members, distance representation, graph mutation, source-index validation, weight domain, reference behavior, and raised exceptions are not specified.
+- `GraphView` and weighted-neighbor iteration are required by name only; their import paths, shapes, and runtime validation behavior are not specified.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Consume dynamic GraphView weighted neighbors to relax edges. Reject negative weights and invalid or foreign source handles. Unreachable nodes have no distance. Parent handles reconstruct shortest paths. Support cycles, parallel edges, and self-loops. Do not use a library priority queue.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- O((V + E) log V) time with a binary heap and O(V) auxiliary space.
+Run `python -m pytest src/algorithms/shortest-paths/dijkstra`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

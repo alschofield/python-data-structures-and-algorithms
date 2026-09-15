@@ -1,18 +1,15 @@
 # Radix Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Use stable least-significant-digit counting passes in a fixed radix.
+`radix_sort.radixSort` must be importable. The current test scaffold names `radixSort(items): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement radixSort with: radixSort(items): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, supported numeric domain, reference/identity behavior, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Process digits least to most significant. Every digit pass must be stable; preserve overall stability. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best/average/worst O(d(n + k)), O(n + k) auxiliary space.
+Run `python -m pytest src/algorithms/sorting/non-comparison/radix-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

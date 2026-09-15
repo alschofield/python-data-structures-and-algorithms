@@ -1,18 +1,15 @@
 # Insertion Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Grow a sorted prefix by shifting strictly greater items right for each next item.
+`insertion_sort.insertionSort` must be importable. The current test scaffold names `insertionSort(items, compare): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement insertionSort<T> with: insertionSort(items, compare): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, reference/identity behavior, comparator convention, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Sort in place ascending and stable: equal items retain their order. Nearly sorted input must be adaptive. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best O(n), average/worst O(n^2), O(1) extra space.
+Run `python -m pytest src/algorithms/sorting/comparison/insertion-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

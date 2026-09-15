@@ -1,18 +1,15 @@
 # Prefix Trie
 
-## How It Works
+## Evidence-Based Contract
 
-A character tree where root-to-node paths spell prefixes and marked nodes spell stored keys.
+`prefix_trie.PrefixTrie` must be importable. The test scaffold names `insert(key)`, `contains(key)`, `startsWith(prefix)`, `remove(key)`, and `size`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement PrefixTrie with: insert(key), contains(key), startsWith(prefix), remove(key), size. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Constructor behavior; whether `size` is a property or method; key and prefix domains; return values; duplicate and absent-key behavior; mutation; retained string or object references; accepted runtime types; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Duplicate insertion is idempotent. contains matches whole keys; startsWith accepts the empty prefix. remove fails cleanly for absent keys and prunes only now-unused nodes. Do not use a library trie/map for child storage.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- insert, contains, startsWith, remove O(m) for key length; O(total stored characters) space in the worst case.
+Run `python -m pytest src/data-structures/trees/tries/prefix-trie`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

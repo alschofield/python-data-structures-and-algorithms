@@ -1,18 +1,15 @@
 # Binary Search Tree
 
-## How It Works
+## Evidence-Based Contract
 
-An unbalanced ordered binary tree: left values compare before a node, right values after it.
+`binary_search_tree.BinarySearchTree` must be importable. The test scaffold names `constructor(compare)`, `insert(item)`, `find(key)`, `contains(key)`, `remove(key)`, `inOrder(visitor)`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement BinarySearchTree<T> with: constructor(compare), insert(item), find(key), contains(key), remove(key), inOrder(visitor), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Python constructor spelling, comparator convention, duplicate handling, return values, visitor semantics, mutation and failure atomicity, retained object references, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Comparison follows negative/zero/positive semantics. Duplicate insertions fail and retain the first item. Removal handles leaves, one child, two children, and root. In-order traversal is strictly ordered and stops if its visitor returns false.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- insert/find/remove/contains O(log n) balanced, O(n) worst case; inOrder O(n); O(n) nodes plus O(height) working space.
+Run `python -m pytest src/data-structures/trees/binary-search-trees/binary-search-tree`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

@@ -1,18 +1,15 @@
 # Queue
 
-## How It Works
+## Evidence-Based Contract
 
-A FIFO ring buffer with wrapping head and tail indexes, so dequeues never shift elements.
+`queue.Queue` must be importable. The test scaffold names `enqueue(item)`, `dequeue()`, `peek()`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement Queue<T> with: enqueue(item), dequeue(), peek(), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Constructor behavior; whether `size` and `isEmpty` are properties or methods; return values; empty-operation behavior; mutation; retained object references; accepted runtime types; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- dequeue and peek return the oldest item; dequeue removes it. Empty operations report absence without mutation. Stored values remain caller-owned.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- enqueue amortized O(1); dequeue, peek, size, isEmpty O(1); O(n) contiguous space.
+Run `python -m pytest src/data-structures/linear/queues/queue`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

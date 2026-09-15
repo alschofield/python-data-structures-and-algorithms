@@ -1,18 +1,15 @@
 # Singly Linked List
 
-## How It Works
+## Evidence-Based Contract
 
-A node chain with one forward link and a head pointer.
+`singly_linked_list.SinglyLinkedList` must be importable. The test scaffold names `pushFront(item)`, `pushBack(item)`, `popFront()`, `popBack()`, `get(index)`, `insert(index, item)`, `remove(index)`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement SinglyLinkedList<T> with: pushFront(item), pushBack(item), popFront(), popBack(), get(index), insert(index, item), remove(index), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Constructor behavior; whether `size` and `isEmpty` are properties or methods; index rules; return values; failure atomicity; mutation; retained item references; accepted runtime types; and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Indexes are [0, size); insert also accepts size. Failed operations preserve the list. Removing the final node leaves a valid empty list. Stored values remain caller-owned.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- pushFront, popFront, size, isEmpty O(1); all other operations O(n); O(n) nodes with one link each.
+Run `python -m pytest src/data-structures/linear/linked/singly-linked-list`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

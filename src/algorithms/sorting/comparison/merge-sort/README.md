@@ -1,18 +1,15 @@
 # Merge Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Recursively sort halves, then merge them through an auxiliary buffer.
+`merge_sort.mergeSort` must be importable. The current test scaffold names `mergeSort(items, compare): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement mergeSort<T> with: mergeSort(items, compare): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, reference/identity behavior, comparator convention, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Sort ascending and stable by taking the left run on ties. Use an O(n) auxiliary buffer. If allocation can fail in the implementation environment, failure must preserve input. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best/average/worst O(n log n), O(n) auxiliary plus O(log n) recursion space.
+Run `python -m pytest src/algorithms/sorting/comparison/merge-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

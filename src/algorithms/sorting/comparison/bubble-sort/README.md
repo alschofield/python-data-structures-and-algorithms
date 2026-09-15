@@ -1,18 +1,15 @@
 # Bubble Sort
 
-## How It Works
+## Evidence-Based Contract
 
-Adjacent out-of-order swaps sweep the largest remaining item to the unsorted tail.
+`bubble_sort.bubbleSort` must be importable. The current test scaffold names `bubbleSort(items, compare): boolean | void` and provides no executable behavioral cases.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement bubbleSort<T> with: bubbleSort(items, compare): boolean | void. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Whether `items` is mutated, the return value, ordering direction, stability, reference/identity behavior, comparator convention, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- Sort in place ascending and remain stable by swapping only strictly greater pairs. A zero-swap pass must exit early. Do not use built-in sorting.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- best O(n), average/worst O(n^2), O(1) extra space.
+Run `python -m pytest src/algorithms/sorting/comparison/bubble-sort`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.

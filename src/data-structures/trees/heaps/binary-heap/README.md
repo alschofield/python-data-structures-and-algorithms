@@ -1,18 +1,15 @@
 # Binary Heap
 
-## How It Works
+## Evidence-Based Contract
 
-An array-backed complete tree with children at 2i+1 and 2i+2, maintaining the caller-defined minimum at the root.
+`binary_heap.BinaryHeap` must be importable. The test scaffold names `constructor(compare)`, `push(item)`, `pop()`, `peek()`, `size`, and `isEmpty`.
 
-## Required API
+## Boundaries To Specify In Tests
 
-Implement BinaryHeap<T> with: constructor(compare), push(item), pop(), peek(), size, isEmpty. Use idiomatic Python classes/functions, type hints, and return values; the required operations remain equivalent to the canonical C curriculum.
+- Python constructor spelling, comparator convention and priority direction, return values, empty-operation behavior, mutation, retained item references, accepted runtime types, and raised exceptions are not specified.
+- The scaffold has no Python type annotations. Type hints, if added, are not runtime validation unless the implementation explicitly validates values.
+- No complexity target is currently verified or specified.
 
-## Contract
+## Verification
 
-- push appends then sifts up; pop removes the extreme then sifts down. Empty pop/peek report absence without mutation. Equal priorities have no guaranteed order. Use geometric growth and do not use a library priority queue.
-- Implement from first principles. Do not substitute dict, set, built-in sorting/searching, heapq, or collections.deque for the exercise.
-
-## Complexity Targets
-
-- push/pop O(log n), push amortized including growth; peek/size/isEmpty O(1); bottom-up heapify O(n); O(n) contiguous space.
+Run `python -m pytest src/data-structures/trees/heaps/binary-heap`. The import check must pass; the behavior scaffold is intentionally marked xfail until concrete tests are written.
